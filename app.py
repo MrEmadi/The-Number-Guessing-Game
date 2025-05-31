@@ -10,8 +10,8 @@ if __name__ == '__main__':
             'easy': 10,
             'hard': 5
         }
-        if not user_level in levels:
-            raise Exception('Invalid difficulty level! Try again later.')
+        while not user_level in levels:
+            user_level = input("Try again! Choose difficulty. Type 'easy' or 'hard': ")
         chances = levels[user_level]
         print(f"You have {chances} attempts remaining to guess the number.")
     except Exception as e:
