@@ -20,6 +20,19 @@ if __name__ == '__main__':
             user_guess = int(input('\nMake a guess: '))
             if not 1 <= user_guess <= 100:
                 raise Exception('Guess must be a number between 1 and 100')
+            chances -= 1
+            diff_number = user_guess - random_number_1_to_100
+            if diff_number == 0:
+                print(f'You got it! '
+                      f'The answer was {random_number_1_to_100}')
+                print('\nBye!')
+                break
+            if chances == 0:
+                print('You\'ve run out of guesses! You lose.')
+                print('\nBye!')
+                break
+            result_diff = "High" if diff_number < 0 else "Low"
+            print(f'{result_diff}! Guess again.\n')
         except ValueError:
             print('\nError -> You must enter a number! Try again.\n')
         except Exception as error:
